@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#title {
+    font-size: 400%;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border: black solid 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+}
+
+.input {
+    padding: 0;
+    text-align: center;
+}
+
+#board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.correct {
+    background-color: rgb(108, 155, 108);
+}
+
+.miss {
+    background-color: rgb(242, 242, 127);
+}
+
+.wrong {
+    background-color: rgb(189, 174, 174);
+}
