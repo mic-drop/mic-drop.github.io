@@ -4,7 +4,7 @@ import boardService from "../services/board-service.js";
 let boardView = {};
 
 boardView.show = function () {
-    if (boardService.currentRound === 0) {
+    if (boardService.getCurrentRound() === 0) {
         let board = '<div id="board"></div>';
         $(board).appendTo('#main-content');
         renderBoard();
@@ -30,7 +30,7 @@ let renderBoard = function () {
 }
 
 let renderRound = function () {
-    const currentRound = boardService.currentRound;
+    const currentRound = boardService.getCurrentRound();
 
     renderResultSquareRow(currentRound - 1);
     renderInputRow(currentRound);
@@ -66,16 +66,16 @@ let renderBlankSquareRow = function (currentRow) {
 }
 
 let renderResultSquareRow = function (currentRow) {
-    console.log("hey");
     const cols = boardService.getCols();
     let row = $(`#row-${currentRow}-square`);
-    $(row).empty();
-    renderBlankSquareRow(currentRow);
 
+    $(row).empty();
+
+    renderBlankSquareRow(currentRow);
     for (let i = 0; i < cols; i++) {
         let square = $(`#r${currentRow}-i${i}`);
-        $(square).html(boardService.lastWord[i]);
-        $(square).addClass(boardService.classes[i]);
+        $(square).html(boardService.getLastWord()[i].toUpperCase());
+        $(square).addClass(boardService.getClasses()[i]);
     }
 }
 
