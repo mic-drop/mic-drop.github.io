@@ -34,8 +34,9 @@ export function loadHandlers(currentRow) {
 }
 
 const defaultButton = function (e, currentRow, index) {
+    let square = $(`#r${currentRow}-i${index}`);
 
-    if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+    if ((square.val() >= 'a' && square.val() <= 'z') || (square.val() >= 'A' && square.val() <= 'Z')) {
         $(`#r${currentRow}-i${index + 1}`).focus();
         return;
     }
